@@ -16,6 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from board.views import create_article, ArticleCreateView, IndexTemplateView, ArticleListView, ArticleFormView, \
+    ArticleDetailView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('create/', create_article, name='article-create'),
+    path('', IndexTemplateView.as_view(), name='index'),
+    path('article/create/', ArticleFormView.as_view(), name='class-article-create'),
+    path('article/', ArticleListView.as_view(), name='article-list'),
+    path('article/<int:pk>/', ArticleDetailView.as_view(), name='article-detail'),
 ]

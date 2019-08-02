@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <ul>
+        {% for object in object_list %}
+            <li><a href="{% url 'article-detail' object.pk %}">{{ object.author }} - {{ object.title }}</a></li>
+        {% endfor %}
+        </ul>
+
+    </body>
+</html>
